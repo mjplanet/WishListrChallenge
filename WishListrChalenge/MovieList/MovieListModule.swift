@@ -11,7 +11,7 @@ import UIKit
 struct MovieListModule {
     
     func build() -> UIViewController {
-        let view = UIStoryboard.instantiate() as! MovieListView
+        let view = MovieListView()
         let presenter = MovieListPresenter()
         view.presenter = presenter
         presenter.view = view
