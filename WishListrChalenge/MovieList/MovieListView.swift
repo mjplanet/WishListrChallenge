@@ -24,9 +24,6 @@ class MovieListView: UIViewController {
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, Movie>!
     
-//    typealias DataSource = UICollectionViewDiffableDataSource<Section, Movie>
-//    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Movie>
-
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

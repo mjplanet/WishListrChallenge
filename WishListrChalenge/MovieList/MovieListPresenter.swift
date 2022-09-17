@@ -10,6 +10,8 @@ import Foundation
 
 protocol MovieListPresenterInterface {
     func viewDidLoad()
+    func didSelectItem(at indexPath: IndexPath)
+    func sortButtonDidTap()
 }
 
 class MovieListPresenter: NSObject {
@@ -22,6 +24,14 @@ extension MovieListPresenter: MovieListPresenterInterface {
     
     func viewDidLoad() {
         view?.initialSetup()
+    }
+    
+    func didSelectItem(at indexPath: IndexPath) {
+        
+    }
+    
+    func sortButtonDidTap() {
+        
     }
     
 }
