@@ -52,7 +52,8 @@ extension MovieListPresenter: MovieListPresenterInterface {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        
+        let detailViewController = MovieDetailModule().build(movie: movieItems[indexPath.item])
+        view?.present(detailViewController)
     }
     
     func sortByYearDidTap() {

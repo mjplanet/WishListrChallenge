@@ -23,6 +23,8 @@
 		617F30DD28D73C6B0074CA0B /* MovieDetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F30DA28D73C6B0074CA0B /* MovieDetailModule.swift */; };
 		617F30DE28D73C6B0074CA0B /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F30DB28D73C6B0074CA0B /* MovieDetailPresenter.swift */; };
 		617F30DF28D73C6B0074CA0B /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F30DC28D73C6B0074CA0B /* MovieDetailView.swift */; };
+		617F30EC28D768CF0074CA0B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 617F30EB28D768CF0074CA0B /* Kingfisher */; };
+		617F30EE28D768F90074CA0B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F30ED28D768F90074CA0B /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,7 @@
 		617F30DA28D73C6B0074CA0B /* MovieDetailModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModule.swift; sourceTree = "<group>"; };
 		617F30DB28D73C6B0074CA0B /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		617F30DC28D73C6B0074CA0B /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		617F30ED28D768F90074CA0B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617F30EC28D768CF0074CA0B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +101,7 @@
 			children = (
 				616D0EC928D644BC004F5483 /* AppDelegate.swift */,
 				616D0ECB28D644BC004F5483 /* SceneDelegate.swift */,
+				617F30ED28D768F90074CA0B /* UIImageView+Extension.swift */,
 				610D68BB28D714B700B56BCF /* API */,
 				616D0EF128D64A51004F5483 /* Entities */,
 				617F30D928D73C5B0074CA0B /* Modules */,
@@ -169,6 +174,9 @@
 			dependencies = (
 			);
 			name = WishListrChalenge;
+			packageProductDependencies = (
+				617F30EB28D768CF0074CA0B /* Kingfisher */,
+			);
 			productName = WishListrChalenge;
 			productReference = 616D0EC628D644BC004F5483 /* WishListrChalenge.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +206,9 @@
 				Base,
 			);
 			mainGroup = 616D0EBD28D644BC004F5483;
+			packageReferences = (
+				617F30EA28D768CF0074CA0B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 616D0EC728D644BC004F5483 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617F30EE28D768F90074CA0B /* UIImageView+Extension.swift in Sources */,
 				610D68BE28D7150100B56BCF /* MovieRequest.swift in Sources */,
 				610D68BA28D714AC00B56BCF /* Responses.swift in Sources */,
 				616D0EF428D662FE004F5483 /* MovieCell.swift in Sources */,
@@ -447,6 +459,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		617F30EA28D768CF0074CA0B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		617F30EB28D768CF0074CA0B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 617F30EA28D768CF0074CA0B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 616D0EBE28D644BC004F5483 /* Project object */;
 }

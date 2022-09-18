@@ -27,10 +27,4 @@ struct MovieItem: Hashable, Codable {
         case posterPath = "Poster"
     }
     
-    // Computed variables
-    var posterURL: URL? {
-        guard let path = posterPath else { return nil }
-        guard let url = URL(string: path) else { return nil }
-        return url
-    }
 }

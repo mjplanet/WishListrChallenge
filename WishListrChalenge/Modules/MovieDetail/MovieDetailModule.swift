@@ -10,9 +10,9 @@ import UIKit
 
 struct MovieDetailModule {
     
-    func build() -> UIViewController {
+    func build(movie: MovieItem) -> UIViewController {
         let view = MovieDetailView()
-        let presenter = MovieDetailPresenter()
+        let presenter = MovieDetailPresenter(movie: movie)
         view.presenter = presenter
         presenter.view = view
         return view
