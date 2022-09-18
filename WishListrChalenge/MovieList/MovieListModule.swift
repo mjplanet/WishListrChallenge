@@ -12,7 +12,9 @@ struct MovieListModule {
     
     func build() -> UIViewController {
         let view = MovieListView()
-        let presenter = MovieListPresenter()
+        let apiClient = ApiClientImplementation()
+        let service = MovieApiServiceImplementation(apiClient)
+        let presenter = MovieListPresenter(service: service)
         view.presenter = presenter
         presenter.view = view
         return view

@@ -10,7 +10,7 @@ import UIKit
 
 protocol MovieListViewInterface: AnyObject {
     func initialSetup()
-    func updateSnapshot(from movies: [Movie])
+    func updateSnapshot(from movies: [MovieItem])
 }
 
 class MovieListView: UIViewController {
@@ -23,7 +23,7 @@ class MovieListView: UIViewController {
 
     // MARK: - Properties
     private var collectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Movie>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MovieItem>!
     
     
     // MARK: - Lifecycle
@@ -99,10 +99,10 @@ class MovieListView: UIViewController {
     
     private func configureDataSource() {
 
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, movie -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, movieItem -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell
-            cell?.name = movie.title
-            cell?.year = movie.year
+            cell?.name = movieItem.title
+            cell?.year = movieItem.year
             return cell
         })
         
@@ -128,8 +128,8 @@ extension MovieListView: MovieListViewInterface {
      
     }
     
-    func updateSnapshot(from movies: [Movie]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
+    func updateSnapshot(from movies: [MovieItem]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MovieItem>()
         snapshot.appendSections([.main])
         snapshot.appendItems(movies)
         dataSource.apply(snapshot)

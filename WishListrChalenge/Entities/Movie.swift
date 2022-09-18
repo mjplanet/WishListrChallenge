@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct Movie: Hashable {
+struct Movies: Hashable, Decodable {
+    let movieItems: [MovieItem]?
+    
+    enum CodingKeys: String, CodingKey {
+        case movieItems = "Search"
+    }
+}
+
+struct MovieItem: Hashable, Codable {
     var title: String?
     var year: String?
     var posterPath: String?

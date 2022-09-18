@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610D68B828D7148500B56BCF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D68B728D7148500B56BCF /* API.swift */; };
+		610D68BA28D714AC00B56BCF /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D68B928D714AC00B56BCF /* Responses.swift */; };
+		610D68BE28D7150100B56BCF /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D68BD28D7150100B56BCF /* MovieRequest.swift */; };
+		610D68C028D7167600B56BCF /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D68BF28D7167600B56BCF /* MovieService.swift */; };
 		616D0ECA28D644BC004F5483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D0EC928D644BC004F5483 /* AppDelegate.swift */; };
 		616D0ECC28D644BC004F5483 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616D0ECB28D644BC004F5483 /* SceneDelegate.swift */; };
 		616D0ED328D644BC004F5483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616D0ED228D644BC004F5483 /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610D68B728D7148500B56BCF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		610D68B928D714AC00B56BCF /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		610D68BD28D7150100B56BCF /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
+		610D68BF28D7167600B56BCF /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		616D0EC628D644BC004F5483 /* WishListrChalenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WishListrChalenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616D0EC928D644BC004F5483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		616D0ECB28D644BC004F5483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +51,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		610D68BB28D714B700B56BCF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				610D68BC28D714BD00B56BCF /* Core */,
+				610D68BD28D7150100B56BCF /* MovieRequest.swift */,
+				610D68BF28D7167600B56BCF /* MovieService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		610D68BC28D714BD00B56BCF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				610D68B728D7148500B56BCF /* API.swift */,
+				610D68B928D714AC00B56BCF /* Responses.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		616D0EBD28D644BC004F5483 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +91,7 @@
 			children = (
 				616D0EC928D644BC004F5483 /* AppDelegate.swift */,
 				616D0ECB28D644BC004F5483 /* SceneDelegate.swift */,
+				610D68BB28D714B700B56BCF /* API */,
 				616D0EF128D64A51004F5483 /* Entities */,
 				616D0EEA28D64592004F5483 /* MovieList */,
 				616D0ED228D644BC004F5483 /* Assets.xcassets */,
@@ -171,13 +199,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610D68BE28D7150100B56BCF /* MovieRequest.swift in Sources */,
+				610D68BA28D714AC00B56BCF /* Responses.swift in Sources */,
 				616D0EF428D662FE004F5483 /* MovieCell.swift in Sources */,
 				616D0ECA28D644BC004F5483 /* AppDelegate.swift in Sources */,
 				616D0ECC28D644BC004F5483 /* SceneDelegate.swift in Sources */,
 				616D0EF028D64A4F004F5483 /* Movie.swift in Sources */,
 				616D0EE928D6458F004F5483 /* MovieListView.swift in Sources */,
 				616D0EE728D6458F004F5483 /* MovieListModule.swift in Sources */,
+				610D68B828D7148500B56BCF /* API.swift in Sources */,
 				616D0EE828D6458F004F5483 /* MovieListPresenter.swift in Sources */,
+				610D68C028D7167600B56BCF /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

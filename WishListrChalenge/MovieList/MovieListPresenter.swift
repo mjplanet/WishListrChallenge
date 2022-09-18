@@ -17,6 +17,27 @@ protocol MovieListPresenterInterface {
 class MovieListPresenter: NSObject {
     
     weak var view: MovieListViewInterface?
+    private var service: MovieApiServiceImplementation
+    private var movieItems: [MovieItem]? {
+        didSet {
+            view?.updateSnapshot(from: movieItems ?? [])
+        }
+    }
+    
+    init(service: MovieApiServiceImplementation) {
+        self.service = service
+    }
+    
+    private func getMovies() {
+        service.movies { result in
+            switch result {
+            case .success(let movies):
+                self.movieItems = movies.movieItems
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     
 }
 
@@ -24,21 +45,15 @@ extension MovieListPresenter: MovieListPresenterInterface {
     
     func viewDidLoad() {
         view?.initialSetup()
+        getMovies()
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        
-        var movies: [Movie] = [.init(title: "Batman", year: "1994", posterPath: nil), .init(title: "Hell", year: "2009", posterPath: nil)]
-        
-        movies = movies.sorted(by: { $0.title ?? "" > $1.title ?? "" })
-        
-        view?.updateSnapshot(from: movies)
+//        movieItems = movieItems?.sorted(by: { $0.year ?? "" < $1.year ?? ""})
     }
     
     func sortButtonDidTap() {
-        let movies: [Movie] = [.init(title: "Batman", year: "1994", posterPath: nil), .init(title: "Hell", year: "2009", posterPath: nil)]
-        
-        view?.updateSnapshot(from: movies)
+//        movieItems = movieItems?.sorted(by: { $0.title ?? "" < $1.title ?? ""})
     }
     
 }
