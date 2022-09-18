@@ -28,10 +28,17 @@ extension MovieListPresenter: MovieListPresenterInterface {
     
     func didSelectItem(at indexPath: IndexPath) {
         
+        var movies: [Movie] = [.init(title: "Batman", year: "1994", posterPath: nil), .init(title: "Hell", year: "2009", posterPath: nil)]
+        
+        movies = movies.sorted(by: { $0.title ?? "" > $1.title ?? "" })
+        
+        view?.updateSnapshot(from: movies)
     }
     
     func sortButtonDidTap() {
+        let movies: [Movie] = [.init(title: "Batman", year: "1994", posterPath: nil), .init(title: "Hell", year: "2009", posterPath: nil)]
         
+        view?.updateSnapshot(from: movies)
     }
     
 }

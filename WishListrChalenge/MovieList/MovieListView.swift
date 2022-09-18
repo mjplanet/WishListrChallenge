@@ -10,6 +10,7 @@ import UIKit
 
 protocol MovieListViewInterface: AnyObject {
     func initialSetup()
+    func updateSnapshot(from movies: [Movie])
 }
 
 class MovieListView: UIViewController {
@@ -34,10 +35,6 @@ class MovieListView: UIViewController {
         configureHierarchy()
         configureDataSource()
         
-        
-        let movies: [Movie] = [.init(title: "Batman", year: "1994", posterPath: nil), .init(title: "Hell", year: "2009", posterPath: nil)]
-        
-        createSnapshot(from: movies)
     }
     
     
@@ -59,7 +56,7 @@ class MovieListView: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemGroupedBackground
         collectionView.delegate = self
-        collectionView.register(SimpleCell.self, forCellWithReuseIdentifier: SimpleCell.identifier)
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.identifier)
         view.addSubview(collectionView)
     }
     
@@ -103,7 +100,7 @@ class MovieListView: UIViewController {
     private func configureDataSource() {
 
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, movie -> UICollectionViewCell? in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimpleCell.identifier, for: indexPath) as? SimpleCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell
             cell?.name = movie.title
             cell?.year = movie.year
             return cell
@@ -111,12 +108,6 @@ class MovieListView: UIViewController {
         
     }
     
-    private func createSnapshot(from movies: [Movie]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(movies)
-        dataSource.apply(snapshot)
-    }
     
     // MARK: - Theme
     
@@ -124,7 +115,7 @@ class MovieListView: UIViewController {
     
     // MARK: - Actions
     @objc private func sortButtonDidTap() {
-        print("Tapped")
+        presenter.sortButtonDidTap()
     }
     
 }
@@ -137,83 +128,19 @@ extension MovieListView: MovieListViewInterface {
      
     }
     
+    func updateSnapshot(from movies: [Movie]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(movies)
+        dataSource.apply(snapshot)
+    }
+    
 }
 
 extension MovieListView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        presenter.didSelectItem(at: indexPath)
     }
     
-}
-
-class SimpleCell: UICollectionViewCell {
-    
-    // MARK: - Static Variables
-    static var identifier: String {
-        return String(describing: self)
-    }
-    
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    lazy var yearLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
-    var name: String? {
-        didSet {
-            nameLabel.text = name
-        }
-    }
-    
-    var year: String? {
-        didSet {
-            yearLabel.text = year
-        }
-    }
-    
-    // MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubviews()
-        setupConstraints()
-        applyTheme()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Setup
-    private func addSubviews() {
-        contentView.addSubview(stackView)
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(yearLabel)
-    }
-    
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-    
-    private func applyTheme() {
-        self.backgroundColor = .systemGray4
-        self.layer.cornerRadius = 16
-    }
 }
