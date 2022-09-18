@@ -33,6 +33,7 @@ class MovieCell: UICollectionViewCell {
         return stackView
     }()
     
+    // MARK: - Public variables
     var name: String? {
         didSet {
             nameLabel.text = name

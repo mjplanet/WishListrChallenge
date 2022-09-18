@@ -20,7 +20,7 @@ class MovieListView: UIViewController {
     enum Section {
         case main
     }
-
+    
     // MARK: - Properties
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, MovieItem>?
@@ -95,7 +95,7 @@ class MovieListView: UIViewController {
     }
     
     private func configureDataSource() {
-
+        
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, movieItem -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell
             cell?.name = movieItem.title

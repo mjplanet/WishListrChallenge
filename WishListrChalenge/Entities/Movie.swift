@@ -17,6 +17,8 @@ struct Movies: Hashable, Decodable {
 }
 
 struct MovieItem: Hashable, Codable {
+    let uuid = UUID()
+    
     var title: String?
     var year: String?
     var posterPath: String?
@@ -27,4 +29,11 @@ struct MovieItem: Hashable, Codable {
         case posterPath = "Poster"
     }
     
+    static func ==(lhs: MovieItem, rhs: MovieItem) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+    }
 }

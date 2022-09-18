@@ -23,9 +23,7 @@ class MovieDetailPresenter: NSObject {
 }
 
 extension MovieDetailPresenter: MovieDetailPresenterInterface {
-    
     func viewDidLoad() {
         view?.setMovieValues(movie)
     }
-    
 }

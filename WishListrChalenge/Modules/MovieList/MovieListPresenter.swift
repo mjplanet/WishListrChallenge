@@ -19,7 +19,7 @@ protocol MovieListPresenterInterface {
 class MovieListPresenter: NSObject {
     
     weak var view: MovieListViewInterface?
-    private var service: MovieApiServiceImplementation
+    private var service: MovieApiService
     private var currentPage = 1
     private var movieItems: [MovieItem] = [] {
         didSet {
@@ -27,7 +27,7 @@ class MovieListPresenter: NSObject {
         }
     }
     
-    init(service: MovieApiServiceImplementation) {
+    init(service: MovieApiService) {
         self.service = service
     }
     
@@ -67,5 +67,4 @@ extension MovieListPresenter: MovieListPresenterInterface {
     func didReachEndOfList() {
         fetchMovies()
     }
-    
 }

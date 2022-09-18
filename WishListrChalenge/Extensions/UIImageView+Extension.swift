@@ -10,13 +10,11 @@ import UIKit
 import Kingfisher
 
 public extension UIImageView {
-    
     func setRemoteImage(with path: String?) {
         guard let path = path else {
             image = nil
             return
         }
         self.kf.setImage(with: URL(string: path))
-    }
-    
+    }   
 }

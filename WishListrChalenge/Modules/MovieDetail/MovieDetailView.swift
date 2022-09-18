@@ -54,7 +54,6 @@ class MovieDetailView: UIViewController {
         applyTheme()
     }
     
-    
     // MARK: - Setups
     private func addSubviews() {
         view.addSubview(imageView)
@@ -76,26 +75,16 @@ class MovieDetailView: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32)
         ])
-
-
     }
-    
     
     // MARK: - Theme
     private func applyTheme() {
         view.backgroundColor = .systemGray5
     }
     
-    
-    // MARK: - Actions
-    
-    
 }
 
-
-
 extension MovieDetailView: MovieDetailViewInterface {
-
     func setMovieValues(_ movie: MovieItem) {
         imageView.setRemoteImage(with: movie.posterPath)
         movieNameLabel.text = movie.title
