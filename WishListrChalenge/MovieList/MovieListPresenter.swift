@@ -11,16 +11,19 @@ import Foundation
 protocol MovieListPresenterInterface {
     func viewDidLoad()
     func didSelectItem(at indexPath: IndexPath)
-    func sortButtonDidTap()
+    func sortByYearDidTap()
+    func sortByNameDidTap()
+    func didReachEndOfList()
 }
 
 class MovieListPresenter: NSObject {
     
     weak var view: MovieListViewInterface?
     private var service: MovieApiServiceImplementation
-    private var movieItems: [MovieItem]? {
+    private var currentPage = 1
+    private var movieItems: [MovieItem] = [] {
         didSet {
-            view?.updateSnapshot(from: movieItems ?? [])
+            view?.updateSnapshot(from: movieItems)
         }
     }
     
@@ -28,11 +31,12 @@ class MovieListPresenter: NSObject {
         self.service = service
     }
     
-    private func getMovies() {
-        service.movies { result in
+    private func fetchMovies() {
+        service.movies(page: currentPage) { [weak self] result in
             switch result {
             case .success(let movies):
-                self.movieItems = movies.movieItems
+                self?.currentPage += 1
+                self?.movieItems += movies.movieItems ?? []
             case.failure(let error):
                 print(error.localizedDescription)
             }
@@ -44,16 +48,23 @@ class MovieListPresenter: NSObject {
 extension MovieListPresenter: MovieListPresenterInterface {
     
     func viewDidLoad() {
-        view?.initialSetup()
-        getMovies()
+        fetchMovies()
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-//        movieItems = movieItems?.sorted(by: { $0.year ?? "" < $1.year ?? ""})
+        
     }
     
-    func sortButtonDidTap() {
-//        movieItems = movieItems?.sorted(by: { $0.title ?? "" < $1.title ?? ""})
+    func sortByYearDidTap() {
+        movieItems = movieItems.sorted(by: { $0.year ?? "" < $1.year ?? ""})
+    }
+    
+    func sortByNameDidTap() {
+        movieItems = movieItems.sorted(by: { $0.title ?? "" < $1.title ?? ""})
+    }
+    
+    func didReachEndOfList() {
+        fetchMovies()
     }
     
 }

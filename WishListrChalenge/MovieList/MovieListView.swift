@@ -9,7 +9,6 @@
 import UIKit
 
 protocol MovieListViewInterface: AnyObject {
-    func initialSetup()
     func updateSnapshot(from movies: [MovieItem])
 }
 
@@ -30,13 +29,10 @@ class MovieListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        
         configureNavItem()
         configureHierarchy()
         configureDataSource()
-        
     }
-    
     
     // MARK: - Setups
     private func configureNavItem() {
@@ -108,19 +104,34 @@ class MovieListView: UIViewController {
         
     }
     
-    
-    // MARK: - Theme
-    
+    private func createActionSheet() {
+        let alertController = UIAlertController(title: "Sort", message: "Select the sort option", preferredStyle: .actionSheet)
+        
+        let sortByYearAction = UIAlertAction(title: "By Year", style: .default) { [weak self] _ in
+            self?.presenter.sortByYearDidTap()
+        }
+        
+        let sortByNameAction = UIAlertAction(title: "By Name", style: .default) { [weak self] _ in
+            self?.presenter.sortByNameDidTap()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            alertController.dismiss(animated: true)
+        }
+        
+        alertController.addAction(sortByYearAction)
+        alertController.addAction(sortByNameAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true)
+    }
     
     
     // MARK: - Actions
     @objc private func sortButtonDidTap() {
-        presenter.sortButtonDidTap()
+        createActionSheet()
     }
-    
 }
-
-
 
 extension MovieListView: MovieListViewInterface {
     
@@ -141,6 +152,12 @@ extension MovieListView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.didSelectItem(at: indexPath)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.bounds.height + scrollView.contentOffset.y >= scrollView.contentSize.height {
+            presenter.didReachEndOfList()
+        }
     }
     
 }

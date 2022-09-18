@@ -11,7 +11,7 @@ import Foundation
 typealias MovieApiServiceResultCompletion = (_ result: Result<Movies>) -> Void
 
 protocol MovieApiService {
-    func movies(completion: @escaping MovieApiServiceResultCompletion)
+    func movies(page: Int, completion: @escaping MovieApiServiceResultCompletion)
 }
 
 class MovieApiServiceImplementation: MovieApiService {
@@ -22,8 +22,8 @@ class MovieApiServiceImplementation: MovieApiService {
         self.apiClient = apiClient
     }
     
-    func movies(completion: @escaping MovieApiServiceResultCompletion) {
-        apiClient.execute(request: MovieServiceRequest()) { (result: Result<ApiResponse<Movies>>) in
+    func movies(page: Int, completion: @escaping MovieApiServiceResultCompletion) {
+        apiClient.execute(request: MovieServiceRequest(page: page)) { (result: Result<ApiResponse<Movies>>) in
             switch result {
             case .success(let movies):
                 completion(.success(movies.entity))
