@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  WishListrChalenge
+//  WishListrChallenge
 //
 //  Created by Mobin Jahantark on 9/17/22.
 //

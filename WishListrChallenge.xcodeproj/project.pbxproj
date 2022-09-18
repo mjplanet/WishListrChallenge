@@ -32,7 +32,7 @@
 		610D68B928D714AC00B56BCF /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		610D68BD28D7150100B56BCF /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
 		610D68BF28D7167600B56BCF /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
-		616D0EC628D644BC004F5483 /* WishListrChalenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WishListrChalenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		616D0EC628D644BC004F5483 /* WishListrChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WishListrChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616D0EC928D644BC004F5483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		616D0ECB28D644BC004F5483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		616D0ED228D644BC004F5483 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		616D0EC728D644BC004F5483 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				616D0EC628D644BC004F5483 /* WishListrChalenge.app */,
+				616D0EC628D644BC004F5483 /* WishListrChallenge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,9 +169,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		616D0EC528D644BC004F5483 /* WishListrChalenge */ = {
+		616D0EC528D644BC004F5483 /* WishListrChallenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 616D0EDA28D644BC004F5483 /* Build configuration list for PBXNativeTarget "WishListrChalenge" */;
+			buildConfigurationList = 616D0EDA28D644BC004F5483 /* Build configuration list for PBXNativeTarget "WishListrChallenge" */;
 			buildPhases = (
 				616D0EC228D644BC004F5483 /* Sources */,
 				616D0EC328D644BC004F5483 /* Frameworks */,
@@ -181,12 +181,12 @@
 			);
 			dependencies = (
 			);
-			name = WishListrChalenge;
+			name = WishListrChallenge;
 			packageProductDependencies = (
 				617F30EB28D768CF0074CA0B /* Kingfisher */,
 			);
 			productName = WishListrChalenge;
-			productReference = 616D0EC628D644BC004F5483 /* WishListrChalenge.app */;
+			productReference = 616D0EC628D644BC004F5483 /* WishListrChallenge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 616D0EC128D644BC004F5483 /* Build configuration list for PBXProject "WishListrChalenge" */;
+			buildConfigurationList = 616D0EC128D644BC004F5483 /* Build configuration list for PBXProject "WishListrChallenge" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -221,7 +221,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				616D0EC528D644BC004F5483 /* WishListrChalenge */,
+				616D0EC528D644BC004F5483 /* WishListrChallenge */,
 			);
 		};
 /* End PBXProject section */
@@ -411,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobinjt.WishListrChalenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobinjt.WishListrChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -441,7 +441,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobinjt.WishListrChalenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobinjt.WishListrChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -452,7 +452,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		616D0EC128D644BC004F5483 /* Build configuration list for PBXProject "WishListrChalenge" */ = {
+		616D0EC128D644BC004F5483 /* Build configuration list for PBXProject "WishListrChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				616D0ED828D644BC004F5483 /* Debug */,
@@ -461,7 +461,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		616D0EDA28D644BC004F5483 /* Build configuration list for PBXNativeTarget "WishListrChalenge" */ = {
+		616D0EDA28D644BC004F5483 /* Build configuration list for PBXNativeTarget "WishListrChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				616D0EDB28D644BC004F5483 /* Debug */,

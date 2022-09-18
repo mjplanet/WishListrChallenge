@@ -1,6 +1,6 @@
 //
 //  MovieDetailView.swift
-//  WishListrChalenge
+//  WishListrChallenge
 //
 //  Created Mobin Jahantark on 9/18/22.
 //  Copyright © 2022 mobinjt.com. All rights reserved.
