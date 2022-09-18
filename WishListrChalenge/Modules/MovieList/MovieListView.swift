@@ -135,10 +135,6 @@ class MovieListView: UIViewController {
 
 extension MovieListView: MovieListViewInterface {
     
-    func initialSetup() {
-     
-    }
-    
     func updateSnapshot(from movies: [MovieItem]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, MovieItem>()
         snapshot.appendSections([.main])
